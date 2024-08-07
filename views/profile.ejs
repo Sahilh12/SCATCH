@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scatch</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Times New Roman', Times, serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(#ffffff, #ddddddbe);
+    }
+
+    .card {
+        position: relative;
+        width: 300px;
+        background: #fff;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 15px 25px rgba(246, 214, 255, 0.986);
+    }
+</style>
+
+<body class="font-['helvetica_now_display']">
+    <nav
+        class="scroll w-full fixed top-0 left-0 px-5 py-3 flex justify-between items-center backdrop-blur-md shadow-[rgba(50,50,93,0.06)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">
+        <h3 class="text-xl">Scatch</h3>
+        <div class="flex gap-5">
+            <a href="/shop">Shop</a>
+            <a href="/cart">Cart</a>
+            <a href="/profile">Account</a>
+            <a href="/user/logout" class="text-red-500 ">LogOut</a>
+        </div>
+    </nav>
+
+    <body>
+        <div class="card text-center">
+            <div class="w-[200px] ml-12 relative">
+                <img src="<%=user.image%>" alt="" class=" ">
+                <a href="/user/profile/edit/<%=user._id%>"><i
+                        class="fa-solid fa-pen-to-square absolute top-4 right-[-30px]"></i></a>
+            </div>
+            <div>
+                <h2 class="uppercase text-3xl text-blue-400">
+                    <%=user.username%>
+                </h2>
+                <p class="text-sm text-gray-600">
+                    <%=user.email%>
+                </p>
+            </div>
+            <p class="mt-20 text-gray-400">Created at : <%=user.date%>
+            </p>
+        </div>
+    </body>
+
+</html>

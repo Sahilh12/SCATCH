@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scatch</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
+    .success {
+        z-index: 1000;
+    }
+
+    .delete {
+        z-index: 1000;
+    }
+</style>
+
+<body class="font-['helvetica_now_display']">
+    <nav
+        class="z-10 scroll w-full fixed top-0 left-0 px-5 py-3 flex justify-between items-center backdrop-blur-md shadow-[rgba(50,50,93,0.06)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">
+        <h3 class="text-xl">Scatch</h3>
+        <div class="flex gap-5">
+            <a href="/owner/alluser">All User</a>
+            <a href="/user/logout" class="text-red-500 ">LogOut</a>
+        </div>
+    </nav>
+
+    <% if(success.length>0){ %>
+        <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500 success">
+            <span class="inline-block mt-1 mb-1 text-white">
+                <%= success %>
+            </span>
+        </div>
+        <% } %>
+            <% if(deleteproduct.length>0){ %>
+                <div class="delete absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-400">
+                    <span class="inline-block mt-1 mb-1 text-white">
+                        <%= deleteproduct %>
+                    </span>
+                </div>
+                <% } %>
+                    <% if(deleteAll.length>0){ %>
+                        <div
+                            class="delete absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-400">
+                            <span class="inline-block mt-1 mb-1 text-white">
+                                <%= deleteAll %>
+                            </span>
+                        </div>
+                        <% } %>
+                            <div class="w-full h-screen flex items-start px-20 py-20">
+                                <div class="w-[25%] flex h-screen flex-col items-start">
+                                    <div class="flex flex-col">
+                                        <a class="block w-fit mb-2" href="/product/allproduct">All Products</a>
+                                        <a class="block w-fit mb-2" href="/owner/admin">Create new product</a>
+                                    </div>
+                                </div>
+                                <div class="w-[75%] flex flex-col gap-5 h-screen">
+                                    <a class="text-red-500 inline-block w-16" href="/deleteAll">Delete all</a>
+                                    <div class="flex flex-wrap gap-5">
+                                        <% products.forEach(function(product){ %>
+                                            <div class="w-60 ">
+                                                <div
+                                                    class="w-full h-52 flex items-center justify-center relative bg-[<%= product.bgcolor %>]">
+                                                    <img class="h-[12rem] "
+                                                        src="data:image/jpeg;base64,<%= product.productImage.toString('base64') %>"
+                                                        alt="">
+                                                    <a href="/product/edit/<%=product.id%>"><i
+                                                            class="fa-solid fa-pen-to-square absolute top-4 right-4 text-gray-500"
+                                                            title="Edit"></i></a>
+                                                </div>
+                                                <div
+                                                    class="flex justify-between bg-[<%= product.panelColor %>] items-center px-4 py-4 text-[<%= product.textColor %>]">
+                                                    <div>
+                                                        <h3>
+                                                            <%= product.productName %>
+                                                        </h3>
+                                                        <h4>₹ <%= product.price %>
+                                                        </h4>
+                                                    </div>
+                                                    <a class="w-7 h-7 flex items-center justify-center rounded-full bg-white"
+                                                        href="/delete/<%=product.id%>">
+                                                        <i class="fa-solid fa-trash text-red-400"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <% }) %>
+                                    </div>
+                                </div>

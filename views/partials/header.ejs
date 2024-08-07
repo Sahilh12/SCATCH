@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scatch</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
+    .success {
+        z-index: 100;
+    }
+</style>
+
+<body class="font-['helvetica_now_display']">
+    <nav
+        class="z-10 scroll w-full fixed top-0 left-0 px-5 py-3 flex justify-between items-center backdrop-blur-md shadow-[rgba(50,50,93,0.06)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">
+        <h3 class="text-xl ">Scatch</h3>
+        <div class="flex gap-5">
+            <a href="/shop">Shop</a>
+            <a href="/cart">Cart</a>
+            <a href="/profile">Account</a>
+            <a href="/user/logout" class="text-red-500 ">LogOut</a>
+        </div>
+    </nav>
